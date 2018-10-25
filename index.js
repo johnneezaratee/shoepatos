@@ -13,12 +13,20 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-app.set('views', path.join(__dirname, 'server/views'));
+app.set('views', path.join(__dirname, 'server'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    res.render('index.pug');
-  })
+    res.render('views/index.pug');
+})
+
+app.get('/userreg', (req, res) => {
+    res.render('views/userreg.pug');
+})
+
+app.get('/admin', (req, res) => {
+    res.render('admin/asignin.pug');
+})
 
 //app.use('/', indexRouter);
 
