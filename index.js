@@ -13,13 +13,6 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-app.use((req, res, next) => {
-  req.viewModel = {
-    title: 'Shoepatos'
-  };
-  next();
-});
-
 app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'pug');
 

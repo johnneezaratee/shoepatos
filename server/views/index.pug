@@ -3,38 +3,46 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    title= title
+    title Shoepatos
 
     link(rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
 
   body
-    main#cardoVue(role="main" class="container")
-      h1#pageTitle Shoepatos
-      form#addNoteForm(action="/" method="POST")
-        .form-group
-          label Title
-          input.form-control#title(type="text" name="title")
-        .form-group
-          label Description
-          textarea.form-control#description(rows="3" name="description")
-        .form-group
-          button.btn.btn-primary(type="button"
-            v-on:click="addNote") Add Note
-          button.btn#clearBtn(type="button") Clear
-      section
-        table.table#notesTable
-          tr
-            th ID
-            th Title
-            th Description
-            th Actions
-          tr
-            td note.id
-            td note.title
-            td note.description
-            td 
-              button Delete
+    main(role="main" class="container-fluid")
+      nav(class="w-100 navbar navbar-expand-lg navbar-light bg-light")
+        a(class="h1 font-weight-italic mr-5" href="#") Shoepatos
+        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation")
+          span(class="navbar-toggler-icon")
+        div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
+          div(class="navbar-nav")
+            a(class="nav-item nav-link active" href="#") Home
+        a(class="nav-item nav-link form-inline" href="#") My Cart (0)
+        form(class="form-inline")
+          input(class="form-control mr-sm-2" type="text" placeholder="Username")
+          input(class="form-control mr-sm-2" type="password" placeholder="Password")
+          button(class="btn btn-outline-info mr-2 my-sm-0" type="submit") Sign In
+          button(class="btn btn-outline-success my-2 my-sm-0" type="submit") Register
+      div(class="container")
+        h5(class="m-3") Products
+        section
+          table.table
+            tr
+              th Item no.
+              th Brand
+              th Model
+              th Description
+              th Price
+              th Actions
+            tr
+              td 1001
+              td Nike
+              td Air Max
+              td Size: 10 / Color: Black
+              td Php 1,000,000.00
+              td 
+                button(class="btn btn-info mr-2 my-sm-0" type="submit") Buy
+                button(class="btn btn-success mr-2 my-sm-0" type="submit") Add to Cart
           
     //script(src="/axios.min.js")
     //script(src="/vue.js")
