@@ -25,7 +25,7 @@ app.get('/userreg', (req, res) => {
 })
 
 app.get('/admin', (req, res) => {
-    res.render('admin/asignin.pug');
+    res.render('admin/admin.pug');
 })
 
 //app.use('/', indexRouter);
