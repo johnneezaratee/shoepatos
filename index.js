@@ -6,7 +6,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+const indexRouter = require('./server/routers/indexRouter');
+const notesRouter = require('./server/routers/notesRouter');
 const port = 3000;
+const notes = [];
+
 const SimpleJsonStore = require('simple-json-store');
 
 const store = new SimpleJsonStore('./items.json', { notes: [] });
@@ -16,12 +20,23 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
+app.use((req, res, next) => {
+    req.viewModel = {
+      title: 'Card - Note Taking App',
+        notes: notes
+    };
+    next();
+  });
+
 app.set('views', path.join(__dirname, 'server'));
 app.set('view engine', 'pug');
 
-app.get('/', (req, res) => {
-    res.render('views/index.pug');
-})
+app.use('/', indexRouter);
+app.use('/notes', notesRouter);
+
+// app.get('/', (req, res) => {
+//     res.render('views/index.pug');
+// }) 
 
 app.get('/userreg', (req, res) => {
     res.render('views/userreg.pug');
@@ -60,6 +75,24 @@ app.post('/additem', function getIndexPage(req, res) {
     // window.location.href = 'additem';
     console.log(`Successfully added`);
   });
+
+/*   app.get('/', function getIndexPage(req, res) {
+    let viewModel = req.viewModel;
+    // We can extend the viewModel and add new properties
+    // e.g. viewModel.appName = 'Cardo';
+    //      viewModel.count = 10;
+    //      viewModel.choices = ['apple', 'orange', 'grapes'];
+    // Read more: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics
+    viewModel.notes = store.get('notes');
+    res.render('index.pug', viewModel);
+  }); */
+
+//   app.get('/', (req, res, next) => {
+//     console.log('Index page only');
+//     next();
+//   }, (req, res) => {
+//     res.json(store.get('notes'));
+//   });
 
 app.listen(port, (err) => {
   if(err) { return console.error(err); }

@@ -1,8 +1,5 @@
 {
 	"notes": [
-		{},
-		{},
-		{},
 		{
 			"brand": "Nike",
 			"model": "test",
@@ -46,88 +43,25 @@
 			"instock": "34"
 		},
 		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
+			"brand": "Puma",
+			"model": "El-Rey",
+			"description": "Black",
+			"price": "2000",
+			"instock": "2"
 		},
 		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
+			"brand": "Sperry",
+			"model": "MKW-11",
+			"description": "BLue",
+			"price": "5000",
+			"instock": "5"
 		},
 		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
-		},
-		{
-			"brand": "",
-			"model": "",
-			"description": "",
-			"price": "",
-			"instock": ""
+			"brand": "Puma",
+			"model": "El-Rey",
+			"description": "BLUE",
+			"price": "2000",
+			"instock": "4"
 		}
 	]
 }
