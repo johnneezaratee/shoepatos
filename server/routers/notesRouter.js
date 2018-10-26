@@ -15,6 +15,13 @@ router.get('/', (req, res, next) => {
   res.json(store.get('notes'));
 });
 
+router.get('/admin', (req, res, next) => {
+  //const notes = req.viewModel.notes;
+  next();
+}, (req, res) => {
+  res.json(store.get('notes'));
+});
+
 router.get('/:id', (req, res) => {
   let notes = req.viewModel.notes;
   let note = {};

@@ -15,20 +15,6 @@
 			"instock": "6"
 		},
 		{
-			"brand": "sf",
-			"model": "fv",
-			"description": "tg",
-			"price": "45",
-			"instock": "7"
-		},
-		{
-			"brand": "qa",
-			"model": "ws",
-			"description": "ed",
-			"price": "13",
-			"instock": "2"
-		},
-		{
 			"brand": "ac",
 			"model": "ac",
 			"description": "ad",
@@ -36,32 +22,12 @@
 			"instock": "34"
 		},
 		{
-			"brand": "svfsv",
-			"model": "fsvsfv",
-			"description": "sfvsf",
-			"price": "31",
-			"instock": "34"
-		},
-		{
-			"brand": "Puma",
-			"model": "El-Rey",
-			"description": "Black",
-			"price": "2000",
-			"instock": "2"
-		},
-		{
-			"brand": "Sperry",
-			"model": "MKW-11",
-			"description": "BLue",
-			"price": "5000",
+			"id": 1,
+			"brand": "ppppppppp",
+			"model": "ooooooooo",
+			"description": "uuuuuuu",
+			"price": "658",
 			"instock": "5"
-		},
-		{
-			"brand": "Puma",
-			"model": "El-Rey",
-			"description": "BLUE",
-			"price": "2000",
-			"instock": "4"
 		}
 	]
 }

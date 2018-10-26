@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const indexRouter = require('./server/routers/indexRouter');
+const adminRouter = require('./server/routers/adminRouter');
 const notesRouter = require('./server/routers/notesRouter');
 const port = 3000;
 const notes = [];
@@ -32,6 +33,7 @@ app.set('views', path.join(__dirname, 'server'));
 app.set('view engine', 'pug');
 
 app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/notes', notesRouter);
 
 // app.get('/', (req, res) => {
@@ -46,9 +48,15 @@ app.get('/checkout', (req, res) => {
     res.render('views/checkout.pug');
 })
 
-app.get('/admin', (req, res) => {
+/* app.get('/admin', (req, res) => {
     res.render('admin/admin.pug');
-})
+}) */
+
+/* app.get('/admin', function getIndexPage(req, res) {
+  let viewModel = req.viewModel;
+  viewModel.notes = store.get('notes');
+  res.render('admin/admin.pug', viewModel);
+}); */
 
 app.get('/additem',(req, res) => {
     res.render('admin/additem.pug');
@@ -57,7 +65,8 @@ app.get('/additem',(req, res) => {
 // test karl
 app.post('/additem', function getIndexPage(req, res) {
     const notes = store.get('notes');
-    notes.push ({
+    notes.push ({    
+      id: notes.length > 0 ? notes[notes.length - 1].id + 1 : 1,
       brand: req.body.brand,
       model: req.body.model,
       description: req.body.description,

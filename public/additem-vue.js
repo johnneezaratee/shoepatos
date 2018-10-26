@@ -23,6 +23,7 @@
             SaveItem: function(){
                 var self = this;
                 var payload = {
+                    id: req.body.id,
                     brand: req.body.brand,
                     model: req.body.model,
                     description: req.body.description,

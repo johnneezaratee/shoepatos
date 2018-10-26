@@ -24,7 +24,7 @@ html(lang="en")
       div(class="container")
         h5(class="m-3") Dashboard
         section
-          table.table
+          table.table#notesTable
             tr
               th Item no.
               th Brand
@@ -32,12 +32,13 @@ html(lang="en")
               th Description
               th Price
               th Actions
-            tr
-              td 1001
-              td Nike
-              td Air Max
-              td Size: 10 / Color: Black
-              td Php 1,000,000.00
+            tr(v-for="note in notes")
+              td {{ note.id }}
+              td {{ note.brand }}
+              td {{ note.model }}
+              td {{ note.description }}
+              td {{ note.price }}
+              td {{ note.instock }}
               td 
                 button(class="btn btn-info mr-2 my-sm-0" type="submit") Edit
                 button(class="btn btn-info mr-2 my-sm-0" type="submit") Change Qty
