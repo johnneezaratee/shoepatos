@@ -28,6 +28,9 @@ app.get('/admin', (req, res) => {
     res.render('admin/admin.pug');
 })
 
+app.get('/additem',(req, res) => {
+    res.render('admin/additem.pug');
+})
 //app.use('/', indexRouter);
 
 app.listen(port, (err) => {
