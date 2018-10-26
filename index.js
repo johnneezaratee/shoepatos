@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const port = 3000;
+const SimpleJsonStore = require('simple-json-store');
+const store = new SimpleJsonStore('./items.json', { notes: [] });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,9 +33,32 @@ app.get('/admin', (req, res) => {
 app.get('/additem',(req, res) => {
     res.render('admin/additem.pug');
 })
-//app.use('/', indexRouter);
+
+// test karl
+app.post('/additem', (req, res) => {
+    const notes = store.get('notes');
+    const newNote = {
+      brand: req.body.brand,
+      model: req.body.model,
+      description: req.body.description,
+      price: req.body.price,
+      instock: req.body.instock
+      
+    };
+  
+    notes.push(newNote);
+    store.set('notes', notes);
+  
+    res.json(notes);  
+    //res.render('admin/additem.pug');
+    //res.redirect('/additem');
+    //alert("Successfully added!");
+    // window.location.href = 'additem';
+    console.log(`Successfully added`);
+  });
 
 app.listen(port, (err) => {
   if(err) { return console.error(err); }
   console.log(`Listening to ${port}...`);
 });
+

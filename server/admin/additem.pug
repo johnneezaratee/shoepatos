@@ -28,22 +28,25 @@ html(lang="en")
             </div>
             <div class="card col">
                 h3(class="my-3") Add item
-                <form>
+                <form id="additemVue" action="/additem" method="POST"> 
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" class="form-control" id="brand" placeholder="">
+                        <input type="text" class="form-control" name="brand" placeholder="">
                         <label>Model</label>
-                        <input type="text" class="form-control" id="model" placeholder="">
+                        <input type="text" class="form-control" name="model" placeholder="">
                         <label>Description</label>
-                        <input type="text" class="form-control" id="description" placeholder="">
+                        <input type="text" class="form-control" name="description" placeholder="">
                         <label>Price (in PHP)</label>
-                        <input type="text" class="form-control" id="price" placeholder="">
+                        <input type="text" class="form-control" name="price" placeholder="">
                         <label>Number of items in stock</label>
-                        <input type="text" class="form-control" id="instock" placeholder="">
+                        <input type="text" class="form-control" name="instock" placeholder="">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-3">Save</button>
+                    <button type="submit" class="btn btn-primary mb-3" v-on:click="SaveItem">Save</button>
                     <button class="btn btn-primary mb-3">Clear</button>
                 </form>
             </div>
             <div class="col">
-            
+
+    script(src="https://unpkg.com/axios/dist/axios.min.js")     
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    script(src="/additem-vue.js")            
