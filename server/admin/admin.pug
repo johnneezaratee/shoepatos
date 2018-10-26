@@ -41,7 +41,7 @@ html(lang="en")
               td 
                 button(class="btn btn-info mr-2 my-sm-0" type="submit") Edit
                 button(class="btn btn-info mr-2 my-sm-0" type="submit") Change Qty
-                button(class="btn btn-danger mr-2 my-sm-0" type="submit") Delete
+                button(class="btn btn-danger mr-2 my-sm-0" v-on:click="deleteNote(note)") Delete
 
     script(src="https://unpkg.com/axios/dist/axios.min.js")     
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")

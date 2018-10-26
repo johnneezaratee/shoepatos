@@ -8,6 +8,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 const SimpleJsonStore = require('simple-json-store');
+
 const store = new SimpleJsonStore('./items.json', { notes: [] });
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,23 +36,22 @@ app.get('/additem',(req, res) => {
 })
 
 // test karl
-app.post('/additem', (req, res) => {
+app.post('/additem', function getIndexPage(req, res) {
     const notes = store.get('notes');
-    const newNote = {
+    notes.push ({
       brand: req.body.brand,
       model: req.body.model,
       description: req.body.description,
       price: req.body.price,
       instock: req.body.instock
       
-    };
+    });
   
-    notes.push(newNote);
+    //notes.push(newNote);
     store.set('notes', notes);
-  
-    res.json(notes);  
+    //res.json(notes);  
     //res.render('admin/additem.pug');
-    //res.redirect('/additem');
+    res.redirect('/additem');
     //alert("Successfully added!");
     // window.location.href = 'additem';
     console.log(`Successfully added`);

@@ -21,7 +21,7 @@
         },
         methods: {
             SaveItem: function(){
-/*                 var self = this;
+                var self = this;
                 var payload = {
                     brand: req.body.brand,
                     model: req.body.model,
@@ -35,8 +35,8 @@
                     self.clear();
                   })
                   .catch(function(err) {
-                }); */
-                window.location.href = 'additem';
+                });
+                //window.location.href = 'additem';
               }
         }
     });
