@@ -27,6 +27,10 @@ app.get('/userreg', (req, res) => {
     res.render('views/userreg.pug');
 })
 
+app.get('/checkout', (req, res) => {
+    res.render('views/checkout.pug');
+})
+
 app.get('/admin', (req, res) => {
     res.render('admin/admin.pug');
 })

@@ -7,6 +7,9 @@
         methods: {
             gotoUReg: function() {
                 window.location.href = 'userreg'; 
+            },
+            gotoCheckout: function() {
+                window.location.href = 'checkout'; 
             }
         }
     });

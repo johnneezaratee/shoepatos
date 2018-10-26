@@ -12,14 +12,15 @@ html(lang="en")
     main#indexVue(role="main" class="container-fluid")
       nav(class="w-100 navbar navbar-expand-lg navbar-light bg-light")
         a(class="h1 font-weight-italic mr-5" href="#") Shoepatos
-        a(class="nav-item nav-link active" href="#") Home
-        a(class="nav-item nav-link form-inline" href="#") My Cart (0)
+        div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
+          div(class="navbar-nav")
         form(class="form-inline")
-          input(class="form-control mr-sm-2" type="text" placeholder="Username")
-          input(class="form-control mr-sm-2" type="password" placeholder="Password")
-          button(class="btn btn-outline-info mr-2 my-sm-0" type="submit") Sign In
-          button(class="btn btn-outline-success my-2 my-sm-0" type="button"
-          v-on:click="gotoUReg") Create Account
+          a(class="nav-item nav-link form-inline" href="#") My Cart (0)
+          //- input(class="form-control mr-sm-2" type="text" placeholder="Username")
+              input(class="form-control mr-sm-2" type="password" placeholder="Password")
+              button(class="btn btn-outline-info mr-2 my-sm-0" type="submit") Sign In
+              button(class="btn btn-outline-success my-2 my-sm-0" type="button"
+              v-on:click="gotoUReg") Create Account
       div(class="container")
         h5(class="m-3") Products
         section
@@ -38,8 +39,9 @@ html(lang="en")
               td Size: 10 / Color: Black
               td Php 1,000,000.00
               td 
-                button(class="btn btn-info mr-2 my-sm-0" type="submit") Buy
-                button(class="btn btn-success mr-2 my-sm-0" type="submit") Add to Cart
+                button(class="btn btn-info mr-2 my-sm-0" type="submit"
+                v-on:click="gotoCheckout") Buy
+                button(class="btn btn-success mr-2 my-sm-0" type="button") Add to Cart
 
     script(src="https://unpkg.com/axios/dist/axios.min.js")     
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
