@@ -48,16 +48,6 @@ app.get('/checkout', (req, res) => {
     res.render('views/checkout.pug');
 })
 
-/* app.get('/admin', (req, res) => {
-    res.render('admin/admin.pug');
-}) */
-
-/* app.get('/admin', function getIndexPage(req, res) {
-  let viewModel = req.viewModel;
-  viewModel.notes = store.get('notes');
-  res.render('admin/admin.pug', viewModel);
-}); */
-
 app.get('/additem',(req, res) => {
     res.render('admin/additem.pug');
 })
@@ -71,37 +61,33 @@ app.post('/additem', function getIndexPage(req, res) {
       model: req.body.model,
       description: req.body.description,
       price: req.body.price,
-      instock: req.body.instock
-      
-    });
-  
-    //notes.push(newNote);
+      instock: req.body.instock 
+    });  
     store.set('notes', notes);
-    //res.json(notes);  
-    //res.render('admin/additem.pug');
     res.redirect('/additem');
-    //alert("Successfully added!");
-    // window.location.href = 'additem';
     console.log(`Successfully added`);
   });
 
-/*   app.get('/', function getIndexPage(req, res) {
-    let viewModel = req.viewModel;
-    // We can extend the viewModel and add new properties
-    // e.g. viewModel.appName = 'Cardo';
-    //      viewModel.count = 10;
-    //      viewModel.choices = ['apple', 'orange', 'grapes'];
-    // Read more: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics
-    viewModel.notes = store.get('notes');
-    res.render('index.pug', viewModel);
-  }); */
+app.get('/edit',(req, res) => {
+    res.render('admin/edititem.pug');
+})
 
-//   app.get('/', (req, res, next) => {
-//     console.log('Index page only');
-//     next();
-//   }, (req, res) => {
-//     res.json(store.get('notes'));
-//   });
+app.put('/:id', (req, res) => {
+  const id = req.params.id;
+  const notes = store.get('notes');
+
+  for(let i = 0; i < notes.length; i++) {
+    if(notes[i].id === id) {
+      notes[i].title = req.body.title;
+      notes[i].description = req.body.description;
+      break;
+    }
+  }
+
+  store.set('notes', notes);
+  res.redirect('/admin');
+  console.log(`Successfully edited`);
+});
 
 app.listen(port, (err) => {
   if(err) { return console.error(err); }

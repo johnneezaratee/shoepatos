@@ -40,8 +40,7 @@ html(lang="en")
               td {{ note.price }}
               td {{ note.instock }}
               td 
-                button(class="btn btn-info mr-2 my-sm-0" type="submit") Edit
-                button(class="btn btn-info mr-2 my-sm-0" type="submit") Change Qty
+                button(class="btn btn-info mr-2 my-sm-0" v-on:click="gotoEdit") Edit
                 button(class="btn btn-danger mr-2 my-sm-0" v-on:click="deleteNote(note)") Delete
 
     script(src="https://unpkg.com/axios/dist/axios.min.js")     

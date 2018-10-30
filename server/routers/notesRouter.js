@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router(); //eslint-disable-line
 const SimpleJsonStore = require('simple-json-store');
 
-// Initializes the data-2.json file with notes as its initial value if empty
 const store = new SimpleJsonStore('./items.json', { notes: [] });
 
 router.get('/', (req, res, next) => {
@@ -15,12 +14,12 @@ router.get('/', (req, res, next) => {
   res.json(store.get('notes'));
 });
 
-router.get('/admin', (req, res, next) => {
+/* router.get('/admin/', (req, res, next) => {
   //const notes = req.viewModel.notes;
   next();
 }, (req, res) => {
   res.json(store.get('notes'));
-});
+}); */
 
 router.get('/:id', (req, res) => {
   let notes = req.viewModel.notes;
@@ -29,7 +28,7 @@ router.get('/:id', (req, res) => {
   res.json(note);
 });
 
-router.post('/', (req, res) => {
+/* router.post('/', (req, res) => {
   let notes = req.viewModel.notes;
   const newNote = {
     id: notes.length > 0 ? notes[notes.length - 1].id + 1 : 1,
@@ -40,7 +39,7 @@ router.post('/', (req, res) => {
   notes.push(newNote);
 
   res.json(notes);
-});
+}); */
 
 router.put('/:id', (req, res) => {
   let notes = req.viewModel.notes;
@@ -48,8 +47,13 @@ router.put('/:id', (req, res) => {
 
   for(let i = 0; i < notes.length; i++) {
     if(notes[i].id === id) {
-      notes[i].title = req.body.title;
-      notes[i].description = req.body.description;
+      // notes[i].title = req.body.title;
+      // notes[i].description = req.body.description;
+      brand[i].brand =  req.body.brand;
+      model[i].model =  req.body.model;
+      description[i].description =  req.body.description;
+      price[i].price =  req.body.price;
+      instock[i].instock =  req.body.instock; 
       break;
     }
   }
@@ -58,9 +62,11 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  let notes = req.viewModel.notes;
   const id = req.params.id;
+  const notes = store.get('notes');
   const newNotes = notes.filter(note => Number(note.id) !== Number(id));
+
+  store.set('notes', newNotes);
   res.json(newNotes);
 });
 

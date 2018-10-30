@@ -14,21 +14,4 @@ router.get('/', function getAdminPage(req, res) {
   res.render('admin/admin.pug', viewModel);
 });
 
-/* router.post('/admin', function submitNotes(req, res) {
-  // Process: Get notes from json -> Add new note -> Save the notes
-  let notes = store.get('notes');
-  notes.push({
-    brand: req.body.brand,
-    model: req.body.model,
-    description: req.body.description,
-    price: req.body.price,
-    instock: req.body.instock
-  });
-  store.set('notes', notes);
-
-  //- It just reload the page on /
-  // More on redirection: https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections
-  res.redirect('/');
-}); */
-
 module.exports = router;

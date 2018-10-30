@@ -1,6 +1,7 @@
 {
 	"notes": [
 		{
+			"id": 1,
 			"brand": "Nike",
 			"model": "test",
 			"description": "good",
@@ -8,6 +9,7 @@
 			"instock": "5"
 		},
 		{
+			"id": 2,
 			"brand": "Adidas",
 			"model": "er",
 			"description": "df",
@@ -15,18 +17,19 @@
 			"instock": "6"
 		},
 		{
-			"brand": "ac",
-			"model": "ac",
-			"description": "ad",
-			"price": "23",
-			"instock": "34"
+			"id": 5,
+			"brand": "Skechers",
+			"model": "Ano",
+			"description": "Orange, Size 12",
+			"price": "2000",
+			"instock": "8"
 		},
 		{
-			"id": 1,
-			"brand": "ppppppppp",
-			"model": "ooooooooo",
-			"description": "uuuuuuu",
-			"price": "658",
+			"id": 6,
+			"brand": "Anta",
+			"model": "Pac",
+			"description": "Quiao",
+			"price": "462642",
 			"instock": "5"
 		}
 	]
